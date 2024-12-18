@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
+  name: health-care-project-deployment
   labels:
-    app: nodeapp
+    app: health-care-project
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: nodeapp
+      app: health-care-project
   template:
     metadata:
       labels:
-        app: nodeapp 
+        app: health-care-project
     spec:
       containers:
-      - name: nodeserver
-        image: thetips4you/nodeapp:latest
+      - name: health-care-project
+        image: saranshvijayvargiya/health-care-project
         ports:
         - containerPort: 3000
         
@@ -26,13 +26,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeapp-service
+  name: health-care-projectsvc
 spec:
   selector:
-    app: nodeapp 
+    app: health-care-project
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 5000
+    port: 3000
     targetPort: 3000
-    nodePort: 31110
+    nodePort: 8082
