@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: health-app
-          image: saranshvijayvargiya/health-app # Docker Hub image name
+          image: saranshvijayvargiya/health-app:latest # Docker Hub image name
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8082 # Port exposed by the container as per the Dockerfile
